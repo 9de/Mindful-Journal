@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Journal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mindful Journal</h1>
+            <div class="date" id="current-date"></div>
+            <div class="stats">
+                <div class="stat">
+                    <i class="fas fa-book"></i>
+                    <span id="total-entries">0 entries</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span id="writing-streak">0 day streak</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="journal-entry">
+                <div class="toolbar">
+                    <button onclick="toggleBold()" title="Bold (Ctrl+B)">
+                        <i class="fas fa-bold"></i>
+                    </button>
+                    <button onclick="toggleItalic()" title="Italic (Ctrl+I)">
+                        <i class="fas fa-italic"></i>
+                    </button>
+                    <button onclick="addHeading()" title="Add Heading">
+                        <i class="fas fa-heading"></i>
+                    </button>
+                    <button onclick="addList()" title="Add List">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+
+                <textarea id="journal-text" placeholder="What's on your mind today? Use #tags to categorize your thoughts."></textarea>
+                
+                <div class="word-count">0 words</div>
+
+                <div class="controls">
+                    <div class="mood-selector">
+                        <div class="mood-option" data-mood="😊" onclick="selectMood(this)" title="Happy">😊</div>
+                        <div class="mood-option" data-mood="😐" onclick="selectMood(this)" title="Neutral">😐</div>
+                        <div class="mood-option" data-mood="😔" onclick="selectMood(this)" title="Sad">😔</div>
+                        <div class="mood-option" data-mood="😤" onclick="selectMood(this)" title="Frustrated">😤</div>
+                    </div>
+
+                    <button class="save" onclick="saveEntry()" id="save-button">
+                        <i class="fas fa-save"></i>
+                        Save Entry
+                    </button>
+                </div>
+            </div>
+
+            <div class="previous-entries">
+                <h2>Previous Entries</h2>
+                <input type="text" class="search-box" placeholder="Search entries or #tags..." onkeyup="searchEntries(this.value)">
+                <div id="entries-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
