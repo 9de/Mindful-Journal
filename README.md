@@ -10,7 +10,7 @@
 
 *A beautiful, intuitive journaling web application for mindful self-reflection* ✨
 
-[Features](#features) • [Demo](#demo) • [Installation](#installation) • [Usage](#usage) • [Roadmap](#roadmap) • [Contributing](#contributing)
+[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [Roadmap](#️-roadmap) • [Contributing](#-contributing)
 
 </div>
 
@@ -103,4 +103,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ for mindful journaling
 
 [Report Bug](https://github.com/9de/Mindful-Journal/issues) • [Request Feature](https://github.com/9de/Mindful-Journal/issues)
-</div>
