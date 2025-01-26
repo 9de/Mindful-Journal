@@ -1,0 +1,376 @@
+:root {
+    --primary-color: #2d3748;
+    --secondary-color: #4a5568;
+    --accent-color: #667eea;
+    --background-color: #f7fafc;
+    --success-color: #48bb78;
+    --error-color: #f56565;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.stat {
+    background: var(--background-color);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.journal-entry {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.toolbar button {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
+}
+
+.toolbar button:hover {
+    background: var(--background-color);
+    color: var(--accent-color);
+}
+
+.toolbar button.active {
+    color: var(--accent-color);
+    background: var(--background-color);
+}
+
+textarea {
+    width: 100%;
+    min-height: 300px;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color var(--transition-speed);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.word-count {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button.save {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button.save:hover {
+    background-color: #5a67d8;
+    transform: translateY(-1px);
+}
+
+button.save:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.mood-selector {
+    display: flex;
+    gap: 1rem;
+}
+
+.mood-option {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
+}
+
+.mood-option:hover {
+    background: var(--background-color);
+}
+
+.mood-option.selected {
+    background: var(--accent-color);
+    color: white;
+}
+
+.previous-entries {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.previous-entries h2 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--background-color);
+}
+
+.entry-card {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform var(--transition-speed);
+}
+
+.entry-card:hover {
+    transform: translateY(-2px);
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.entry-date {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.entry-mood {
+    color: var(--secondary-color);
+}
+
+.entry-text {
+    color: var(--primary-color);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.notification.success {
+    background-color: var(--success-color);
+}
+
+.notification.error {
+    background-color: var(--error-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.search-box {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.entry-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.entry-actions button {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.entry-actions button:hover {
+    color: var(--accent-color);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.entry-actions button.edit {
+    color: var(--accent-color);
+}
+
+.entry-actions button.delete {
+    color: var(--error-color);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tag {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--accent-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.confirmation-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+}
+
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.dialog-buttons button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dialog-buttons .confirm {
+    background: var(--error-color);
+    color: white;
+}
+
+.dialog-buttons .cancel {
+    background: var(--secondary-color);
+    color: white;
+}
